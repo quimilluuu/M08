@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity() {
                  Animation.RELATIVE_TO_SELF, 0.5f,
                  Animation.RELATIVE_TO_SELF, 0.5f
              )
+             scaleAnimation.duration
              regirockButton.startAnimation(scaleAnimation)
-             scaleAnimation.duration = 1000 // Duración de la animación
-             scaleAnimation.repeatCount = 3 // Repetir la animación una vez (total de 2 veces)
+             scaleAnimation.duration = 1000
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                  Animation.RELATIVE_TO_SELF, 0.5f
              )
              regiceButton.startAnimation(scaleAnimation)
+             scaleAnimation.duration = 1000
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
@@ -93,6 +94,7 @@ class MainActivity : AppCompatActivity() {
                  Animation.RELATIVE_TO_SELF, 0.5f
              )
              registeelButton.startAnimation(scaleAnimation)
+             scaleAnimation.duration = 1000
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
@@ -115,6 +117,7 @@ class MainActivity : AppCompatActivity() {
                  Animation.RELATIVE_TO_SELF, 0.5f
              )
              regigigasButton.startAnimation(scaleAnimation)
+             scaleAnimation.duration = 1000
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
