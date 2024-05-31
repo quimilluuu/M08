@@ -7,6 +7,12 @@ import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import kotlin.random.Random
+import android.view.animation.AlphaAnimation
+import android.view.animation.RotateAnimation
+import android.view.animation.ScaleAnimation
+import android.view.animation.TranslateAnimation
+import android.view.View
+import android.view.animation.Animation
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +44,15 @@ class MainActivity : AppCompatActivity() {
              soundPool.play(soundRegirock, 1f, 1f, 0, 0, 1f)
              inputedSequence.add(0)
              turn++
+             val scaleAnimation = ScaleAnimation(
+                 1.0f, 1.3f,
+                 1.0f, 1.3f,
+                 Animation.RELATIVE_TO_SELF, 0.5f,
+                 Animation.RELATIVE_TO_SELF, 0.5f
+             )
+             regirockButton.startAnimation(scaleAnimation)
+             scaleAnimation.duration = 1000 // Duración de la animación
+             scaleAnimation.repeatCount = 3 // Repetir la animación una vez (total de 2 veces)
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
@@ -53,6 +68,13 @@ class MainActivity : AppCompatActivity() {
              soundPool.play(soundRegice, 1f, 1f, 0, 0, 1f)
              inputedSequence.add(1)
              turn++
+             val scaleAnimation = ScaleAnimation(
+                 1.0f, 1.3f,
+                 1.0f, 1.3f,
+                 Animation.RELATIVE_TO_SELF, 0.5f,
+                 Animation.RELATIVE_TO_SELF, 0.5f
+             )
+             regiceButton.startAnimation(scaleAnimation)
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
@@ -68,6 +90,13 @@ class MainActivity : AppCompatActivity() {
              soundPool.play(soundRegisteel, 1f, 1f, 0, 0, 1f)
              inputedSequence.add(2)
              turn++
+             val scaleAnimation = ScaleAnimation(
+                 1.0f, 1.3f,
+                 1.0f, 1.3f,
+                 Animation.RELATIVE_TO_SELF, 0.5f,
+                 Animation.RELATIVE_TO_SELF, 0.5f
+             )
+             registeelButton.startAnimation(scaleAnimation)
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
@@ -83,6 +112,13 @@ class MainActivity : AppCompatActivity() {
              soundPool.play(soundRegigigas, 1f, 1f, 0, 0, 1f)
              inputedSequence.add(3)
              turn++
+             val scaleAnimation = ScaleAnimation(
+                 1.0f, 1.2f,
+                 1.0f, 1.2f,
+                 Animation.RELATIVE_TO_SELF, 0.5f,
+                 Animation.RELATIVE_TO_SELF, 0.5f
+             )
+             regigigasButton.startAnimation(scaleAnimation)
              if (turn == currentSequenceLongitude) {
                  Log.d("random", sequence.toString() + ", " + inputedSequence.toString())
                  if (sequence == inputedSequence) {
