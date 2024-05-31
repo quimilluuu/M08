@@ -7,11 +7,7 @@ import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import kotlin.random.Random
-import android.view.animation.AlphaAnimation
-import android.view.animation.RotateAnimation
 import android.view.animation.ScaleAnimation
-import android.view.animation.TranslateAnimation
-import android.view.View
 import android.view.animation.Animation
 
 class MainActivity : AppCompatActivity() {
