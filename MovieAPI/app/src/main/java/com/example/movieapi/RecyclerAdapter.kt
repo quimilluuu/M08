@@ -23,14 +23,6 @@ class RecyclerAdapter (private var moviesList:  MutableList<MovieInfo> = mutable
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val context = parent.context
-        val inflater = LayoutInflater.from(context)
-        val contactView = inflater.inflate(R.layout.movie, parent, false)
-
-        return ViewHolder(contactView)
-    }
-
     private var onItemClickListener: OnItemClickListener? = null
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
@@ -53,6 +45,14 @@ class RecyclerAdapter (private var moviesList:  MutableList<MovieInfo> = mutable
                 }
             }
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val context = parent.context
+        val inflater = LayoutInflater.from(context)
+        val contactView = inflater.inflate(R.layout.movie, parent, false)
+
+        return ViewHolder(contactView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

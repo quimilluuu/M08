@@ -1,5 +1,6 @@
 package com.example.movieapi
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: RecyclerAdapter
     private var page = 1
+    private var loadingMovies = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +28,36 @@ class MainActivity : AppCompatActivity() {
 
         RecyclerViewSetUp()
         LoadMovies()
+
+        val recyclerView: RecyclerView = findViewById(R.id.MoviesContainer)
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val layoutManager = recyclerView.layoutManager as GridLayoutManager
+                val childCount = layoutManager.childCount
+                val itemCount = layoutManager.itemCount
+                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+
+                if (!loadingMovies && childCount + firstVisibleItemPosition >= itemCount && firstVisibleItemPosition >= 0) {
+                    LoadMovies()
+                }
+            }
+        })
+
+        adapter.setOnItemClickListener(object : OnItemClickListener {
+            override fun onItemClick(movie: MovieInfo) {
+                val intent = Intent(this@MainActivity, MovieDescription::class.java).apply {
+                    putExtra("title", movie.title)
+                    putExtra("overview", movie.overview)
+                    putExtra("image", movie.image)
+                }
+                startActivity(intent)
+            }
+        })
     }
+
+
 
     private fun RecyclerViewSetUp() {
         val recyclerView: RecyclerView = findViewById(R.id.MoviesContainer)
@@ -50,5 +81,6 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainActivity", "Error loading movies: ${e.message}")
             }
         }
+        loadingMovies = false
     }
 }
